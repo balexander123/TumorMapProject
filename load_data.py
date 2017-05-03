@@ -21,4 +21,11 @@ if not os.path.isfile(dataFile):
 brca = pd.read_table(dataFile)
 
 print 'brca data frame contains {} rows.'.format(brca['sample'].count())
-brca
+
+print brca.head(5)
+
+print brca.effect.unique()
+
+brca_sub = brca.query('effect == "Missense_Mutation" or effect == "Frame_Shift_Del" or effect == "Nonsense_Mutation"')
+
+print 'brca_sub data frame contains {} rows.'.format(brca_sub['sample'].count())
